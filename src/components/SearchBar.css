@@ -1,0 +1,17 @@
+.search-bar {
+    padding: 0.3rem;
+    border: 2px solid grey;
+    border-radius: 0.3rem;
+}
+
+.search-btn {
+    padding: 0.4rem;
+    margin-left: 0.4rem;
+    border-radius: 0.3rem;
+    background-color: rgb(255, 80, 80);
+    color: white;
+    border: none;
+    display: border-box;
+
+    font-weight: bold;
+}
