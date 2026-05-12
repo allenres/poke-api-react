@@ -1,0 +1,14 @@
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.type {
+    background-color: cadetblue;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    margin-top: -0.5rem;
+}
