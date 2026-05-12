@@ -3,5 +3,6 @@ header {
     background-color: rgb(221, 82, 82);
     align-items: center;
     color: white;
-    gap: 10px;
+    gap: 2rem;
+    justify-content: center;
 }
