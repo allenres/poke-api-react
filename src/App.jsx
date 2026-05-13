@@ -7,11 +7,28 @@ import './App.css'
 
 function App() {
   const [pokemon, setPokemon] = useState([])
-  useEffect(() => fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-  .then(res => res.json())
-  .then(data => setPokemon(data))
-  ,[pokemon]
-  )
+  async function allPokemon(){
+    const url = "https://pokeapi.co/api/v2/pokemon/1/"
+    const response = await fetch(url)
+    const pokemonData = await response.json();
+    setPokemon(pokemonData)
+    // console.log(pokemon)
+  }
+  useEffect(() => {
+    //console.log("USEEFFECT RAN")
+    allPokemon()
+  }, [])
+
+  allPokemon()
+  // useEffect(() => {
+  //     fetch(`https://pokeapi.co/api/v2/pokemon/1/`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setPokemon(data) 
+  //       console.log(data)
+  //     })
+  //   }
+  // ,[])
 
 
   return (
