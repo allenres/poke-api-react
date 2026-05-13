@@ -6,20 +6,31 @@ import CardInfo from './components/CardInfo.jsx'
 import './App.css'
 
 function App() {
+  const [pokeName, SetPokeName] = useState("")
   const [pokemon, setPokemon] = useState([])
+
   async function allPokemon(){
-    const url = "https://pokeapi.co/api/v2/pokemon/1/"
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`
     const response = await fetch(url)
     const pokemonData = await response.json();
     setPokemon(pokemonData)
     // console.log(pokemon)
   }
   useEffect(() => {
-    //console.log("USEEFFECT RAN")
+    // console.log("USEEFFECT RAN")
     allPokemon()
-  }, [])
+  }, [pokeName])
+  console.log(pokemon)
+  
+  function typePokemon(e){
+    const pokeSearch = e.target.value
+    SetPokeName(pokeSearch);
+  }
 
-  allPokemon()
+  // function searchPokemon(){
+  //   typePokemon()
+  // }
+  // Other method
   // useEffect(() => {
   //     fetch(`https://pokeapi.co/api/v2/pokemon/1/`)
   //     .then(res => res.json())
@@ -34,7 +45,12 @@ function App() {
   return (
     <>
     <Header />
-    <SearchBar/>
+
+    <div className="search-container">  
+        <input type='text' name="poke-name" placeholder='Enter pokemon name' className="search-bar" onChange={typePokemon}></input>
+        <button className='search-btn'>Search</button>
+    </div>
+
     <CardInfo />
     <Footer />
     </>
