@@ -6,16 +6,17 @@ import CardInfo from './components/CardInfo.jsx'
 import './App.css'
 
 function App() {
-  const [pokeName, SetPokeName] = useState("")
-  const [pokemon, setPokemon] = useState([])
+  const [userInput, setUserInput] = useState("")
+  const [pokeName, SetPokeName] = useState("bulbasaur")
+  const [pokeData, setPokeData] = useState([])
 
   async function allPokemon(){
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`
     const response = await fetch(url)
     const pokemonData = await response.json();
-    setPokemon(pokemonData)
-    console.log(pokemon)
+    setPokeData(pokemonData)
   }
+
   useEffect(() => {
     // console.log("USEEFFECT RAN")
     allPokemon()
@@ -24,8 +25,13 @@ function App() {
   
   function typePokemon(e){
     const pokeSearch = e.target.value
-    console.log(pokeSearch)
-    SetPokeName(pokeSearch);
+    setUserInput(pokeSearch);
+  }
+
+  function searchPokemon(){
+    SetPokeName(userInput)
+    // console.log("pokemon searched: " + pokeName)
+    // console.log(pokemon)
   }
 
   // function searchPokemon(){
@@ -49,10 +55,10 @@ function App() {
 
     <div className="search-container">  
         <input type='text' name="poke-name" placeholder='Enter pokemon name' className="search-bar" onChange={typePokemon}></input>
-        <button className='search-btn'>Search</button>
+        <button className='search-btn' onClick={searchPokemon}>Search</button>
     </div>
 
-    <CardInfo stats={pokemon.stats} name={pokemon.name}/>
+    <CardInfo stats={pokeData.stats} info={pokeData}/>
     <Footer />
     </>
   )
