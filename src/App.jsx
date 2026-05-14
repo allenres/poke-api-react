@@ -31,12 +31,9 @@ function App() {
   function searchPokemon(){
     SetPokeName(userInput)
     // console.log("pokemon searched: " + pokeName)
-    // console.log(pokemon)
+    console.log(pokeData)
   }
 
-  // function searchPokemon(){
-  //   typePokemon()
-  // }
   // Other method
   // useEffect(() => {
   //     fetch(`https://pokeapi.co/api/v2/pokemon/1/`)
