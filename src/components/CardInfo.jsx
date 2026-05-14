@@ -6,11 +6,11 @@ function Header({pokemonInfo, pokemonStats}){
     return (
         <div className='card-container'>
             <PokeImage />
-            <StatsList 
+            <StatsList
+                pokeStats={pokemonStats}
                 pokeInfo={pokemonInfo}
-                statInformation={pokemonStats}
-                pokemonName={pokemonInfo.name}
-                pokemonTypes={pokemonInfo.types}
+                pokeName={pokemonInfo.name}
+                pokeTypes={pokemonInfo.types}
             />
         </div>
     )
