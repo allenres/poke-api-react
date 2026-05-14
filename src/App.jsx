@@ -14,16 +14,17 @@ function App() {
     const response = await fetch(url)
     const pokemonData = await response.json();
     setPokemon(pokemonData)
-    // console.log(pokemon)
+    console.log(pokemon)
   }
   useEffect(() => {
     // console.log("USEEFFECT RAN")
     allPokemon()
   }, [pokeName])
-  console.log(pokemon)
+ 
   
   function typePokemon(e){
     const pokeSearch = e.target.value
+    console.log(pokeSearch)
     SetPokeName(pokeSearch);
   }
 
@@ -51,7 +52,7 @@ function App() {
         <button className='search-btn'>Search</button>
     </div>
 
-    <CardInfo />
+    <CardInfo stats={pokemon.stats} name={pokemon.name}/>
     <Footer />
     </>
   )
