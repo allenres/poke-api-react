@@ -2,10 +2,13 @@ import './CardInfo.css'
 import StatsList from './StatsList'
 import PokeImage from './PokeImage';
 
-function Header({pokemonInfo, pokemonStats}){
+function Header({pokemonInfo, pokemonStats, pokemonSprite}){
     return (
         <div className='card-container'>
-            <PokeImage />
+            <PokeImage 
+                pokeSprite={pokemonSprite}
+                pokeIndex={pokemonInfo.id}
+            />
             <StatsList
                 pokeStats={pokemonStats}
                 pokeInfo={pokemonInfo}
