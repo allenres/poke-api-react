@@ -55,7 +55,7 @@ function App() {
         <button className='search-btn' onClick={searchPokemon}>Search</button>
     </div>
 
-    <CardInfo stats={pokeData.stats} info={pokeData}/>
+    <CardInfo pokemonInfo={pokeData} pokemonStats={pokeData.stats}/>
     <Footer />
     </>
   )
