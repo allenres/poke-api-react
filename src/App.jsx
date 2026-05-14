@@ -10,18 +10,6 @@ function App() {
   const [pokeName, SetPokeName] = useState("bulbasaur")
   const [pokeData, setPokeData] = useState([])
 
-  async function allPokemon(){
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`
-    const response = await fetch(url)
-    const pokemonData = await response.json();
-    setPokeData(pokemonData)
-  }
-
-  useEffect(() => {
-    // console.log("USEEFFECT RAN")
-    allPokemon()
-  }, [pokeName])
- 
   
   function typePokemon(e){
     const pokeSearch = e.target.value
@@ -33,6 +21,20 @@ function App() {
     // console.log("pokemon searched: " + pokeName)
     console.log(pokeData)
   }
+
+  async function allPokemon(){
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`
+    const response = await fetch(url)
+    const pokemonData = await response.json();
+    setPokeData(pokemonData)
+  }
+  
+  useEffect(() => {
+    allPokemon()
+  }, [pokeName])
+ 
+  
+  
 
   // Other method
   // useEffect(() => {
