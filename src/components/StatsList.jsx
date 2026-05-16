@@ -10,11 +10,14 @@ export default function StatsList({pokeInfo, pokeStats, pokeName, pokeTypes}) {
             </div>
 
             <div className='stat-item'>
-                <p className="stat">{"height: " + pokeInfo.height}</p>
-                <p className="stat">{"weight: " + pokeInfo.weight}</p>
-
-                {pokeStats?.length > 0 && pokeStats.map((statObj) => (<p>{statObj.stat.name + " " + statObj.base_stat}</p> ))}
+                <p className="stat-name">{"height"}</p>
+                <p className="stat">{pokeInfo.height}</p>
             </div>
+
+            {pokeStats?.length > 0 && pokeStats.map((statObj) => ( <div className='stat-item'>
+                <p className="stat-name">{statObj.stat.name}</p>
+                <p className="stat">{statObj.base_stat}</p>
+            </div>))}
         </div>
     ) 
 }
